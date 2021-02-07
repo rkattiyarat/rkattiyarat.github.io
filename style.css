@@ -1,0 +1,7 @@
+
+body {background-color: #ff88ff;margin:0;padding:0;}
+.menu {background-color: #bbffff;boder:4px outset blue;text-align:left;}
+.menu a {margin: 1em;}
+video {object-fit:cover;width: 100%;z-index:-2;position: fixed; top:0;}
+.content {float:left;z-index:1;margin:3em;background-color:rgba(201, 76, 76, 0.2);padding:1em;boder:5px;boder-color:red;}
+
