@@ -8,6 +8,10 @@ body
     bottom: 0;
     left: 0;
     right: 0;
-    height: 3em;background-color:618685;top-margin:1em;left-padding:2em;}
-.footer p {left-margin:2em;}
+    height: 3em;background-color:618685;top-margin:1em;left-padding:2em;border-style:solid;border-color:d5f4e6;}
+.footer p{margin-left:2em;}
 body {height: 90%;}
+body {background-image: url("hawaii.jpg");}
+.post {font-family:"Lucida Handwriting", "Brush Script M7", Cursive;}
+.menu {font-family:"Lucida Handwriting", "Brush Script M7", Cursive;}
+
