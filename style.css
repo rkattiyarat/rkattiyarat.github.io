@@ -7,13 +7,24 @@ div li a {
     list-style: none;
     padding-top: 1em;
     padding-bottom: 1em;
-    display:inline-block;
-    
+    display:inline-block;  
 }
+
 div li a:hover {
     color:red;
     text-decoration: none;
 }
-video {object-fit:cover;width: 100%;z-index:-2;position: fixed; top:0;}
-.content {float:left;z-index:1;margin:3em;background-color:rgba(201, 76, 76, 0.2);padding:1em;boder:5px;boder-color:red;}
+
+.content {
+    display:block;
+    float:middle;
+    z-index:1;
+    margin:5em;
+    background-color:rgba(201, 76, 76, 0.2);
+    padding:1em;
+    }
+h1 {
+    text-decoration: underline;
+    margin-left: 15em;
+}
 
