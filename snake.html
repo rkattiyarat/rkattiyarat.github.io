@@ -1,0 +1,157 @@
+<html>
+<head>
+<style>
+.cell{
+	width: 10px;
+	height:10px;
+	display: inline-block;
+}
+#scorewrapper{
+	background-color: cornflowerblue;
+	width: 10em;
+}
+#board {
+	float: left;
+}
+body {
+	background-color: gray;
+}
+</style>
+<script>
+//global game parameters:
+const side=16
+const snakecolor="black"
+const defaultcolor="white"//There is already a function named "board color"
+const applecolor="red"//all of the graphics are done by changing the background color of cells
+let snakelist=[[side/2,side/2]]//This is a list of snake segments, the snake head is the last element in the list
+let apple=[0,0]//The Apple location
+let snakedir=[0,0]//The direction the snake is heading
+let key=""//Last key pressed goes here
+function addboard(){//generate the board using DOM API
+	let board=document.getElementById("board");//2.1
+	for(x=0;x<side;x++){//These loops should be swapped.
+		for(y=0;y<side;y++){
+			let cell=document.createElement('div');
+			cell.id="cell"+x+","+y;
+			cell.classList.add("cell");//2.5
+			board.appendChild(cell); //2.3
+		}
+		board.appendChild(document.createElement('br'));//2.4
+	}
+}
+function boardcolor(p,c){//change cell at vector position p to color c
+		let lstring="cell"+p[0]+","+p[1];//generate the ID string
+		document.getElementById(lstring).style.backgroundColor=c;//2.6
+}
+function random(){
+	return Math.floor(Math.random() * side);//scale and truncate random number to index one side of the board
+}
+function iscolidingwith(p) {
+	for(a=0; a<snakelist.length; a++){//for every part of the snake
+		if(snakelist[a][0]==p[0]&&snakelist[a][1]==p[1]){//if it's in the same spot as p than it's coliding
+			return true;
+		}
+	}
+	return false;
+}
+
+function snakestep(eating) {
+	if(snakedir[0]!=0 || snakedir[1] !=0){//only move the snake if its moving
+		let x=snakedir[0]
+		let y=snakedir[1]
+		let newx=snakelist[snakelist.length-1][0]+x//Add direction to position
+		let newy=snakelist[snakelist.length-1][1]+y
+		snakelist.push([newx,newy])//add new snake head to end of list
+		boardcolor(snakelist[snakelist.length-1],snakecolor)//draw new head on board
+			
+		if(!eating) {//snake stays same length without eating
+			boardcolor(snakelist.shift(),defaultcolor)//erase oldest part of snake
+		}	
+		else {//We just ate an apple
+			let p=[]
+			do{
+				p=[random(),random()];
+			}while(iscolidingwith(p))//generate position vectors until we find one that isn't in the snake
+				
+			newapple(p);//put an apple there
+		}
+	}
+}
+function selfcolide(){
+	for(a=0; a<snakelist.length; a++){//for every part of the snake
+		for(b=0;b<snakelist.length;b++){//check every part
+		if(a!=b){//that isn't the same part
+			if(snakelist[a][0]==snakelist[b][0]&&snakelist[a][1]==snakelist[b][1]){//if it's in the same spot than we colided with ourself
+					return true;
+			}
+		}
+	}}
+	return false;//if we never returned every part of the snake is in a different spot
+}
+function boardcolide() {
+	var p=snakelist[snakelist.length-1]//get position of head of snake
+	if(p[0]<0 || p[0]>=side || p[1]<0 || p[1] >=side)//check if its in the board
+		return true;
+	return false;
+}
+function newapple(p){//set apple position and draw it on board
+	apple=p;
+	boardcolor(p,applecolor);
+}
+function gamestep(){//main game logic step
+	//X and Y are swapped, the snake direction is a relative vector with components Y,X
+	if(key=="KeyD"&&snakedir[1]==0){snakedir=[0,1];}//set direction based on last key pressed
+	if(key=="KeyS"&&snakedir[0]==0){snakedir=[1,0];}//also make sure we're not reversing direction
+	if(key=="KeyA"&&snakedir[1]==0){snakedir=[0,-1];}
+	if(key=="KeyW"&&snakedir[0]==0){snakedir=[-1,0];}
+	//score is always the length of the snake-1
+	document.getElementById("score").innerHTML="Score: "+(snakelist.length-1);//2.2
+	if(!selfcolide()&&!boardcolide()){//game keeps going if we dont die
+			//3.7
+		setTimeout(gamestep,"200");//to keep the game going we register another timeout half a second into the future
+		let eating=(snakelist[snakelist.length-1][0]==apple[0] && snakelist[snakelist.length-1][1] == apple[1]);
+		snakestep(eating);
+	}
+	else
+		end();//if we hit something we end the game
+}
+function handlekey(keyevent) {
+		key=keyevent.code;//key is global so we can read it at our leasure
+}
+function start(){
+	window.addEventListener("keydown", handlekey);//3.1
+		//set up key event handler
+	snakelist=[[side/2,side/2]];//start snake in middle of board
+		//1.1
+	snakedir=[0,0];//relative position, the snake doesn't move
+	newapple([0,0]);// absolute position, at the origin 0,0
+	document.getElementById("scorewrapper").removeEventListener("click",start);//clean up event listener 
+	gamestep("");//gamestep will register a timeout and keep going until the game ends.
+}
+function clearboard(){
+	for(x=0;x<side;x++){
+		for(y=0;y<side;y++){
+    			boardcolor([x,y],defaultcolor);
+		}
+	}
+}
+
+function end(){//set up next game
+		//3.3
+	document.getElementById("scorewrapper").addEventListener("click",start);//listen for user to start game
+	document.getElementById("score").innerHTML="Click here to start";//let them know how to start it
+	clearboard();//dont leave old game on the board
+}
+			
+function main() {//onload event handler
+	addboard();//set up board
+	end();//set up next game
+}
+</script>
+</head>
+<body onload="main();">
+	<div id="The big one">
+	<div id="scorewrapper"><span id="score"></span></div>
+	<div id="board"></div>
+	</div>
+</body>
