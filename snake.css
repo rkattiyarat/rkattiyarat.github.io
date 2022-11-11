@@ -1,0 +1,29 @@
+.cell{
+    width: 20px;
+    height:20px;
+    display: inline-block;
+    }
+#scorewrapper{
+   
+    background-color: cornflowerblue;
+    width: 10em;
+    height: 1em;
+    margin-bottom: 2em;
+    margin-top: 5em;
+    margin-left: 8em;
+    border-radius: 30%;
+    }
+#board {
+    float: left;
+    line-height:0;
+
+    }
+#pi{
+    background-color: gray;
+    text: gray;
+    color: gray;
+}
+body {
+    background-color: gray;
+    }
+
