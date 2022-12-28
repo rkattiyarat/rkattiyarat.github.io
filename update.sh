@@ -4,16 +4,21 @@
 # Iterate over all the HTML files in the current directory
 for file in input/*.html; do
   # Copy the HTML file to the output directory
-  cp "input/$file" "$file"
+  cp "$file" "$(basename $file)"
 
   # Generate the navigation bar
-  navbar="<nav>"
+  navbar="<nav class='menu'>"
+  navbar="$navbar <a href="index.html" target="_blank">Home</a>\n"
   for html_file in *.html; do
-    navbar="$navbar<a href='$html_file'>$html_file</a>"
+    if [ "$html_file" = "index.html" ]; then
+    continue
+    fi
+    navbar="$navbar<a href='$html_file'>${html_file%.*}</a>\n"
   done
+  navbar="$navbar <a href="https://github.com/rkattiyarat" target="_blank">Github</a>\n"
   navbar="$navbar</nav>"
 
   # Insert the navigation bar into the HTML file
-  sed -i "1i$navbar" "output/$file"
+  sed -i "1i$navbar" "$(basename $file)"
 done
 

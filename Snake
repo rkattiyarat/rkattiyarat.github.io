@@ -1,0 +1,18 @@
+<nav class='menu'><ul><li><a href='contact.html'>contact</a></li><li><a href='destinations.html'>destinations</a></li><li><a href='Gallary.html'>Gallary</a></li><li><a href='index.html'>index</a></li></ul></nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <link href="snake.css" rel="stylesheet"></link>
+    <script src="snake.js"></script>
+    
+</head>
+<body onload="main();">
+	<div id="scorewrapper"><span id="score"></span></div>
+	<div id="board"></div>
+	<input id="colorselector" type="color">Snake color</input>
+	<div id="pi">Paused</div>
+</body>
+</html>
+

@@ -1,16 +1,16 @@
 
 body {background-color: burlywood;margin:0;padding:0;}
 .menu {background-color: bisque; boder:4px outset blue;text-align:left;}
-div li a {
+nav a {
     text-align:center;
-    margin-left: 10em;
+    margin-left: 5em;
     list-style: none;
     padding-top: 1em;
     padding-bottom: 1em;
     display:inline-block;  
 }
 
-div li a:hover {
+nav a:hover {
     color:red;
     text-decoration: none;
 }

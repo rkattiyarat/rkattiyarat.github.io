@@ -1,0 +1,28 @@
+<nav class='menu'> <a href=index.html target=_blank>Home</a>
+<a href='airport.html'>airport</a>
+<a href='contact.html'>contact</a>
+<a href='destinations.html'>destinations</a>
+<a href='Gallary.html'>Gallary</a>
+<a href='snake.html'>snake</a>
+ <a href=https://github.com/rkattiyarat target=_blank>Github</a>
+</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Codes</title>
+    <script defer src="code.js"></script>
+</head>
+<body onload="main()">
+    <form onsubmit="lookup()" id="inform">
+        <h1>Search for an airport</h1>
+        <label for="airport-code">Enter airport code:</label><br>
+        <input type="text" id="airport-code" name="airport-code" placeholder="E.g. JFK" onchange="lookup"><br>
+      </form>  
+     <hr>
+     <h2>Airport</h2>
+      <div id="output"></div>
+</body>
+</html>
