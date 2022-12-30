@@ -15,7 +15,6 @@ async function loadAirportNames() {
 }
 
 function lookup(event){
-    event.preventDefault();
     let input = document.getElementById("airport-code").value;
     let lower = input.toUpperCase();
     console.log(lower)
