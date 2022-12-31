@@ -1,6 +1,6 @@
 
 body {background-color: burlywood;margin:0;padding:0;}
-.menu {background-color: bisque; boder:4px outset blue;text-align:left;}
+.menu {background-color: bisque; border:4px outset blue;text-align:left;}
 nav a {
     text-align:center;
     margin-left: 5em;
