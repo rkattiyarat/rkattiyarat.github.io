@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script>
+        var fireworks = [];
+        var particles = [];
+        function randomcolor(){
+            var r = Math.floor(Math.random()*255);
+            var g = Math.floor(Math.random()*255);
+            var b = Math.floor(Math.random()*255);
+            return "rgb("+r+","+g+","+b+")";
+        }
+        function getrandomfireworkcolor(){
+            var sheet = document.styleSheets[0];
+            var rules = sheet.cssRules;
+            var colors = [];
+            for (var i = 0; i < rules.length; i++) {
+                if(rules[i].selectorText == ".firework"){
+                    colors.push(rules[i].style.backgroundColor);
+                }
+            }
+            return colors[Math.floor(Math.random()*colors.length)];
+        }
+        function Particle(x, y, vx, vy, g, life,color){
+            this.x = x;
+            this.y = y;
+            this.vx = vx;
+            this.vy = vy;
+            this.g = g;
+            this.life = life;
+            this.age = 0;
+            this.color=color;
+        }
+        function explosion(x,y,color) {
+
+            for (var i = 0; i < 20; i++) {
+                particles.push(new Particle(x, y, Math.random()*10-5, Math.random()*10-5, 0.1, 20,color));
+            }
+        }
+        function Firework(x, y, sx, sy,l){
+            this.x = x;
+            this.y = y;
+            this.sx = sx;
+            this.sy = sy;
+            this.life=l;
+            this.g=0.25;
+            this.age=0;
+            this.burstcolor=randomcolor();
+
+        }
+        function launchfirework(w,h) {
+            if(Math.random()>0.95){
+               // fireworks.push(new Firework(0 ,0, Math.random()*w/20, Math.random()*h/20));
+                fireworks.push(new Firework(Math.random()*w,100,Math.random()*w/50-(w/100),-5,Math.random()*100));
+            }
+        }
+        function updatefireworks() {
+            for (f in fireworks){
+                fireworks[f].x+=fireworks[f].sx;
+                fireworks[f].y+=fireworks[f].sy;
+                fireworks[f].sy+=fireworks[f].g;
+                fireworks[f].age+=1;
+                if(fireworks[f].age>fireworks[f].life){
+
+                    explosion(fireworks[f].x,fireworks[f].y,fireworks[f].burstcolor);
+                    fireworks.splice(f,1);
+
+                }
+            }
+
+        }
+        function updateparticles(){
+            for (p in particles){
+                particles[p].x+=particles[p].vx;
+                particles[p].y+=particles[p].vy;
+                particles[p].vy+=particles[p].g;
+                particles[p].age+=1;
+                if(particles[p].age>particles[p].life){
+                    particles.splice(p,1);
+                }
+            }
+        }
+        function drawfirwork(ctx,f){
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, 5, 0, Math.PI*2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+        }
+        function drawparticle(ctx,p){
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+        }
+        function drawfireworks(){
+            var canvas = document.getElementById("fireworks");
+            var ctx = canvas.getContext("2d");
+            var w = canvas.width = window.innerWidth;
+            var h = canvas.height = window.innerHeight;
+
+            drawtextinfirworkscanvas("Happy New Year! "+currentyear());
+            for (f in fireworks){
+                drawfirwork(ctx,fireworks[f]);
+            }
+            for (p in particles){
+                drawparticle(ctx,particles[p]);
+            }
+            updatefireworks();
+            updateparticles();
+            launchfirework(w, h);
+            requestAnimationFrame(drawfireworks);
+        }
+    
+        function currentyear() {
+    var now = new Date();
+    return now.getFullYear();
+        }
+        function drawtextinfirworkscanvas(t){
+            var canvas = document.getElementById("fireworks");
+            var ctx = canvas.getContext("2d");
+            var w = canvas.width = window.innerWidth;
+            var h = canvas.height = window.innerHeight;
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "yellow";
+            ctx.textAlign = "center";
+            ctx.fillText(t, w/2, h/2);
+        
+        }
+        function countdown() {
+            var now = new Date();
+            var eventDate = new Date(currentyear()+1, 00, 01);
+            var currentTime = now.getTime();
+            var eventTime = eventDate.getTime();
+
+
+            var remTime = eventTime - currentTime;
+            console.log(remTime);
+
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+            var d = Math.floor(h / 24);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            drawtextinfirworkscanvas(d + " days " + h + " hours " + m + " minutes " + s + " seconds ");
+            if(isjanfist()){
+                
+                drawfireworks();
+            }
+            else{
+                setTimeout(countdown, 1000);
+            }
+        }
+window.onload=countdown;
+function isjanfist() {
+    var now = new Date();
+    var eventDate = new Date(currentyear, 00, 01);
+    var currentTime = now.getTime();
+    var eventTime = eventDate.getTime();
+    var remTime = eventTime - currentTime;
+    if (remTime < 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+    </script>
+</head>
+<body>
+    <h1>New Year Countdown!</h1>
+    <div id="clock"></div>
+    <canvas id="fireworks"></canvas>
+    
+</body>
+</html>

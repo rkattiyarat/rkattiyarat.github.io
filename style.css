@@ -24,7 +24,21 @@ nav a:hover {
     padding:1em;
     }
 h1 {
-    text-decoration: underline;  
-}
+    text-decoration: none;  
+    text-align: center;
+    color: blue;
+    }
 
+#clock {
+    margin-top: 2em;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+    }
+canvas {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    }
 
