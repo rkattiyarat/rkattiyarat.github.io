@@ -165,11 +165,11 @@
 window.onload=countdown;
 function isjanfist() {
     var now = new Date();
-    var eventDate = new Date(currentyear, 00, 01);
+    var eventDate = new Date(currentyear(), 00, 01);
     var currentTime = now.getTime();
     var eventTime = eventDate.getTime();
     var remTime = eventTime - currentTime;
-    if (remTime < 0) {
+    if (remTime < 8640000) {
         return true;
     }
     else {
