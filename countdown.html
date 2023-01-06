@@ -148,7 +148,7 @@
 
 
             var remTime = eventTime - currentTime;
-            console.log(remTime +" to New Year");
+            console.log(remTime);
 
             var s = Math.floor(remTime / 1000);
             var m = Math.floor(s / 60);
@@ -162,7 +162,7 @@
             h = (h < 10) ? "0" + h : h;
             m = (m < 10) ? "0" + m : m;
             s = (s < 10) ? "0" + s : s;
-            drawtextinfirworkscanvas(d + " days " + h + " hours " + m + " minutes " + s + " seconds ");
+            drawtextinfirworkscanvas(d + " days " + h + " hours " + m + " minutes " + s + " seconds "+ "until New Year!");
             if(isjanfist()){
                 
                 drawfireworks();
