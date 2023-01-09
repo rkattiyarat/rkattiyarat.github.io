@@ -177,7 +177,7 @@ function isjanfist() {
     var eventDate = new Date(currentyear(), 00, 01);
     var currentTime = now.getTime();
     var eventTime = eventDate.getTime();
-    var remTime = currentTime - eventTime;
+    var remTime = eventTime - currentTime;
     if (remTime < 8640000) {
         return true;
     }
