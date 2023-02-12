@@ -29,8 +29,8 @@ function convertFtoC(e) {
         alert('Please enter a number value');
         return;
     }else{
-        let celcius = (fahrenheit - 32) * 5/9;
+    let celcius = (fahrenheit - 32) * 5/9;
     document.getElementById('celcius2').value = celcius;
     }
     e.preventDefault();
-    }
+}
