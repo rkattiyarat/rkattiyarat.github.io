@@ -9,17 +9,20 @@ window.onload = function() {
     }
     
     
-    function convertCtoF(e) {
-    //console.log('convertCtoF');
-    let c = document.getElementById('celcius').value; 
+function convertCtoF(e) {
+    let c = document.getElementById('celcius').value;
+    if (c === '' || c === null) {
+        alert('Please enter a number value');
+        return;
+    }
+    else{
     let f = (c * 9/5) + 32;
     document.getElementById('fahrenheit').value = f;
-    
+    }    
     e.preventDefault();
+}
     
-    }
-    
-    function convertFtoC(e) {
+function convertFtoC(e) {
     //console.log('convertFtoC');
     let fahrenheit = document.getElementById('fahrenheit2').value;
     let celcius = (fahrenheit - 32) * 5/9;
