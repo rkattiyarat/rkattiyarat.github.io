@@ -11,7 +11,7 @@ window.onload = function() {
     
 function convertCtoF(e) {
     let c = document.getElementById('celcius').value;
-    if (c === '' || c === null) {
+    if (c === null || c === '') {
         alert('Please enter a number value');
         return;
     }
@@ -25,7 +25,7 @@ function convertCtoF(e) {
 function convertFtoC(e) {
     
     let fahrenheit = document.getElementById('fahrenheit2').value;
-    if (fahrenheit === '' || fahrenheit === null) {
+    if (fahrenheit === null || fahrenheit === '') {
         alert('Please enter a number value');
         return;
     }else{
