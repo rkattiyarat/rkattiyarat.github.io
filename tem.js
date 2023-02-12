@@ -23,9 +23,14 @@ function convertCtoF(e) {
 }
     
 function convertFtoC(e) {
-    //console.log('convertFtoC');
+    
     let fahrenheit = document.getElementById('fahrenheit2').value;
-    let celcius = (fahrenheit - 32) * 5/9;
+    if (fahrenheit === '' || fahrenheit === null) {
+        alert('Please enter a number value');
+        return;
+    }else{
+        let celcius = (fahrenheit - 32) * 5/9;
     document.getElementById('celcius2').value = celcius;
+    }
     e.preventDefault();
     }
