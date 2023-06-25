@@ -9,7 +9,7 @@ async function loadAirportNames() {
     let data = await response.json();
     console.log("data is",data.length)
     for (let airport of data) {
-        airportNames[airport.code] = airport.name;
+        airportNames[airport.code] = airport.name + ", " + airport.state + ", " + airport.country;
     }
     console.log(airportNames["JFK"]);
 }
