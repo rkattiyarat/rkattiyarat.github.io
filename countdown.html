@@ -143,7 +143,7 @@
         }
         function countdown() {
             var now = new Date();
-            var eventDate = new Date(currentyear()+1, 00, 01);
+            var eventDate = new Date(currentyear()+1, 0o0, 0o1);
             var currentTime = now.getTime();
             var eventTime = eventDate.getTime();
 
@@ -175,7 +175,7 @@
 window.onload=countdown;
 function isjanfist() {
     var now = new Date();
-    var eventDate = new Date(currentyear(), 00, 01);
+    var eventDate = new Date(currentyear(), 0o0, 0o1);
     var currentTime = now.getTime();
     var eventTime = eventDate.getTime();
     var remTime = currentTime - eventTime;

@@ -1,6 +1,6 @@
 
-body {background-color: burlywood;margin:0;padding:0;}
-.menu {background-color: bisque; border:4px outset blue;text-align:left;}
+body {background-color: white;margin:0;padding:0; font-family: "Lucida Console", "Courier New", "monospace";font-weight: bold;}
+.menu {background-color: #f2d349; border:4px outset black;text-align:left;}
 nav a {
     text-align:center;
     margin-left: 5em;
@@ -11,7 +11,7 @@ nav a {
 }
 
 nav a:hover {
-    color:red;
+    color: red;
     text-decoration: none;
 }
 
@@ -20,13 +20,13 @@ nav a:hover {
     float:middle;
     z-index:1;
     margin:5em;
-    background-color:rgba(201, 76, 76, 0.2);
+    background-color:#9daaf2;
     padding:1em;
     }
 h1 {
     text-decoration: none;  
     text-align: center;
-    color: blue;
+    color: black;
     }
 
 #clock {
@@ -41,4 +41,14 @@ canvas {
     height: 100vh;
     background-color: black;
     }
+div.content p{
+    text-align: center;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border-radius: 25%;
+}
 
