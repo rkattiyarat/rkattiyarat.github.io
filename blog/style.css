@@ -8,7 +8,7 @@ body
     bottom: 0;
     left: 0;
     right: 0;
-    height: 3em;background-color:618685;top-margin:1em;left-padding:2em;border-style:solid;border-color:d5f4e6;}
+    height: 3em;background-color:618685;margin-top:1em;padding-left:2em;border-style:solid;border-color:d5f4e6;}
 .footer p{margin-left:2em;}
 body {height: 90%;}
 body {background-image: url("hawaii.jpg");background-size:100%;}
