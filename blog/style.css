@@ -1,7 +1,7 @@
 
 body 
 .menu {background-color:#80ced6;border-style:double;border-color:white;text-align:center;}
-.menu a:link {margin: 1em;color:#wh80ced6a;}
+.menu a:link {margin: 1em;color: white;text-decoration: none;}
 .post {max-width:40em;background-color:d5f4e6;float:left;margin:2em;}
 .footer {
     position: fixed; 
