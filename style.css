@@ -67,3 +67,67 @@ h2 {
     color: red;
 }
 
+.cell{
+    width: 20px;
+    height:20px;
+    display: inline-block;
+    }
+#scorewrapper{
+    background-color: cornflowerblue;
+    width: 30%;
+    height: 3em;
+    border-radius: 25%;
+    text-align: center;
+    margin: 50 auto;
+    border-style: double;
+
+    }
+#board {
+    width: 30%; /* You can adjust the width as needed */
+    margin: 0 auto; /* This centers the element horizontally */
+    margin-top: 2%;
+    }
+#pi {
+        display: inline-block;
+        font-size: 1;
+    }
+
+.hidden {
+        display: block;
+}
+#colorselector {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    margin-left: 2em;
+}
+.gane-start-button {
+    text-align: center;
+    margin-left: 5em;
+    list-style: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display:inline-block;  
+}
+.contact-info {
+    text-align: center;
+    font-size: 2em
+}
+.direction{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+}
+
+#description {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
+      
+
+
+
+

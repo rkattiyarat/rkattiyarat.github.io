@@ -108,11 +108,14 @@ function gamestep(){//main game logic step
     if(key=="KeyA"&&snakedir[0]==0){snakedir=[-1,0];}// left
     if(key=="KeyS"&&snakedir[1]==0){snakedir=[0,1];}// down
     if (key=="KeyD"&&snakedir[0]==0){snakedir=[1,0]}// right
-    if (key=="KeyP"){gamepaused=!gamepaused;key=""}
+    if (key=="KeyP"){
+		gamepaused=!gamepaused;
+		key=""
+		document.getElementById('pi').classList.toggle('hidden');
+	}
     if(!gamepaused){
-    	document.getElementById("pi").style.backgroundColor="gray";
-	if(!selfcolide()){//game keeps going if we dont die
-			
+    	// document.getElementById("pi").style.backgroundColor="gray";
+	if(!selfcolide()){//game keeps going if we dont die	
 		setTimeout(gamestep,"200");//task 3.7, to keep the game going we register another timeout 200 ms into the future
 		let eating=(snakelist[snakelist.length-1][0]==apple[0] && snakelist[snakelist.length-1][1] == apple[1]);
 		snakestep(eating,snakedir);
@@ -124,7 +127,7 @@ function gamestep(){//main game logic step
 	}  
 	}else{
 		setTimeout(gamestep,"200");//task 3.7, to keep the game going we register another timeout 200 ms into the future
-    	document.getElementById("pi").style.backgroundColor="Cornflowerblue";
+    	// document.getElementById("pi").style.backgroundColor="Cornflowerblue";
 	}
 }
 function displayscore(){

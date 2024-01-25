@@ -13,15 +13,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Snake Game</title>
-    <link href="snake.css" rel="stylesheet"></link>
+    <link href="style.css" rel="stylesheet"></link>
     <script src="snake.js"></script>
     
 </head>
 <body onload="main();">
-	<div id="scorewrapper"><span id="score"></span></div>
+	<div id="scorewrapper" class="game-start-button"><span id="score"></span></div>
+    <p class="direction"><span id="description">Description</span> <br> Press 'P' to pause the game <br> 'W' key is up <br> 'S' key is down <br> 'A' key is left <br> 'D' key is right</p>
 	<div id="board"></div>
-	<input id="colorselector" type="color">Snake color</input>
-	<div id="pi">Paused</div>
+	<input id="colorselector" type="color">Choose your snake's color</input>
+    
+	<div id="pi" class="hidden">Paused</div>
 </body>
 </html>
 
