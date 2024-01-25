@@ -51,4 +51,19 @@ img {
     width: 25%;
     border-radius: 25%;
 }
+form {
+    text-align: center;
+}
+#temp-container {
+    text-align: center;
+}   
+h2 {
+    text-align: center;
+}   
+#output {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
 

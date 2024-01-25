@@ -17,9 +17,14 @@ async function loadAirportNames() {
 function lookup(event){
     event.preventDefault();
     let input = document.getElementById("airport-code").value;
+    if(input != ""){
     let lower = input.toUpperCase();
     console.log(lower)
     document.getElementById("output").innerHTML=airportNames[lower];
+    }
+    else {
+        document.getElementById("output").innerHTML="Please enter an airport code";
+    }
     return false;
 }
 
