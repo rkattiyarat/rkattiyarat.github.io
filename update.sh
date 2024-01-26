@@ -8,14 +8,13 @@ for file in input/*.html; do
 
   # Generate the navigation bar
   navbar="<nav class='menu'>"
-  navbar="$navbar <a href="index.html" target="_blank">Home</a>\n"
+  navbar="$navbar <a href="index.html" target="_blank">home</a>\n"
   for html_file in *.html; do
     if [ "$html_file" = "index.html" ]; then
     continue
     fi
     navbar="$navbar<a href='$html_file'>${html_file%.*}</a>\n"
   done
-  navbar="$navbar <a href="https://github.com/rkattiyarat" target="_blank">Github</a>\n"
   navbar="$navbar</nav>"
 
   # Insert the navigation bar into the HTML file
