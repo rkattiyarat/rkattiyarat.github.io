@@ -100,6 +100,7 @@ h2 {
     height: 50px;
     border: 1px solid #000;
     margin-left: 2em;
+    float: left;
 }
 .gane-start-button {
     text-align: center;
@@ -126,6 +127,73 @@ h2 {
     font-weight: bold;
     color: red;
 }
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    justify-content: center;
+    
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+    border-radius: 15%;
+  }
+  .section{
+    background-color: #000;
+    color: #fff;
+    height: 36px;
+    width: 36px;
+    margin: 0px 7px 0px;
+    padding: 5px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.9);
+    transition: width 300ms ease-in-out 0s, background-color 300ms linear 200ms;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    aspect-ratio: 1 / 1;
+}
+
+a{
+    text-decoration: none;
+}
+
+.section:hover{
+    width: 140px;
+    transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
+}
+
+.section::after{
+    content: attr(tooltip);
+    margin-left: 10px;
+}
+.github:hover{
+    background: #00405d;
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+}
+
+ 
       
 
 

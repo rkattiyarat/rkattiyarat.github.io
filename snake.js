@@ -109,9 +109,7 @@ function gamestep(){//main game logic step
     if(key=="KeyS"&&snakedir[1]==0){snakedir=[0,1];}// down
     if (key=="KeyD"&&snakedir[0]==0){snakedir=[1,0]}// right
     if (key=="KeyP"){
-		gamepaused=!gamepaused;
-		key=""
-		document.getElementById('pi').classList.toggle('hidden');
+		gamepaused=!gamepaused;key="";
 	}
     if(!gamepaused){
     	// document.getElementById("pi").style.backgroundColor="gray";
