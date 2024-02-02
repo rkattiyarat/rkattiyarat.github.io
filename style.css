@@ -84,6 +84,7 @@ h2 {
     }
 #board {
     width: 30%; /* You can adjust the width as needed */
+    height: 30%; /* You can adjust the height as needed */
     margin: 0 auto; /* This centers the element horizontally */
     margin-top: 2%;
     }
@@ -95,12 +96,17 @@ h2 {
 .hidden {
         display: block;
 }
+#score {
+    text-align: center;
+    margin-top: 5em;
+   
+}
 #colorselector {
     width: 50px;
-    height: 50px;
+    height: 30px;
     border: 1px solid #000;
-    margin-left: 2em;
-    float: left;
+    margin-left: 45em;
+   
 }
 .gane-start-button {
     text-align: center;
@@ -191,6 +197,24 @@ a{
     justify-content: center;
     align-items: center;
     inset: 0;
+}
+
+#temp-container {
+    font-size: 2em;
+}
+
+#reset-temp {
+    background-color: #3498db; /* Blue background color */
+    color: black;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    border: solid black 2px; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    margin-top: 10px; /* Adjust margin to shift it lower */
+    cursor: pointer; /* Add cursor pointer on hover */
+}
+
+#reset-temp:hover {
+    background-color: #2980b9; /* Darker blue on hover */
 }
 
  

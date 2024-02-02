@@ -156,9 +156,12 @@ function clearboard(){
 function end(){//set up next game
 		//task 3.3
 	document.getElementById("scorewrapper").addEventListener("click",start);//listen for user to start game
-	document.getElementById("score").innerHTML="Click here to start";//let them know how to start it
+	let startButton = document.getElementById("score");
+	startButton.innerHTML="Click here to start";//let them know how to start it
 	clearboard();//dont leave old game on the board
         scores=0;
+	//set color of board to default
+	document.getElementById("colorselector").value="black";//reset snake color
 }
 			
 function main() {//onload event handler
@@ -169,7 +172,7 @@ function main() {//onload event handler
 
 
 
-window.addEventListener('beforeunload', function(event){ //task 3.6
+window.addEventListener('beforeunload', function(event){ 
    event.preventDefault("Are you sure?");
    event.returnValue="Are you sure?";
    return "Are you sure";
