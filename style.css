@@ -217,6 +217,15 @@ a{
     background-color: #2980b9; /* Darker blue on hover */
 }
 
+/* center elements in weather.js */
+#weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
  
       
 

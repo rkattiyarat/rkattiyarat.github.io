@@ -24,11 +24,27 @@
             <div class="weather">
                 <h1>Weather App</h1>
                 <div class="search-box">
-                    <input type="text" class="search-bar" placeholder="Search for a city...">
-                    <button class="search-button" type="submit">Search</button>
+                    <input type="text" class="search-bar" id="searchInput" placeholder="Search for a city...">
+                    <button class="search-button" type="submit" id="search-btn">Search</button>
+                    <div id="suggestions"></div>
+                </div>
+                <div class="city">
+                    <h2 class="city-name" id="city_name">
+                     
+                    </h2>
+                    <div class="city-temp" id="city_temp">
+                        <sup></sup>
+                    </div>
+                    <figure>
+                        <img class="city-icon" src="/profile.jpg" alt="">
+                    </figure>
+                    <div class="city-desc" id="city_desc">
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="../weather-app.js"></script>
 	<body> 	
 </html>
 
