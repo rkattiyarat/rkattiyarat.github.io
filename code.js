@@ -16,11 +16,16 @@ async function loadAirportNames() {
 
 function lookup(event){
     event.preventDefault();
-    let input = document.getElementById("airport-code").value;
+    console.log("Submit Event: ", event);
+    let input = document.getElementById("airport-code").value.trim();
+    console.log("Input: ", input)
     if(input != ""){
     let lower = input.toUpperCase();
     console.log(lower)
-    document.getElementById("output").innerHTML=airportNames[lower];
+    document.getElementById("output").innerHTML=airportNames[lower] || "Airport not found";
+    setTimeout(() => {
+        document.getElementById("airport-code").value = "";
+        }, 100);
     }
     else {
         document.getElementById("output").innerHTML="Please enter an airport code";
@@ -31,7 +36,7 @@ function lookup(event){
 loadAirportNames();
 
 function main() {
-    document.getElementById("airport-code").value = "";
     document.getElementById("inform").addEventListener("submit",lookup);
     document.getElementById("inform").addEventListener("change",lookup);
+    document.getElementById("airport-code").value = "";
 }

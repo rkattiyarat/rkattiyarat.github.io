@@ -10,10 +10,11 @@
     <link rel="icon" type="image/x-icon" href="profile.jpg">
 </head>
 <body onload="main()">
-    <form onsubmit="lookup()" id="inform">
+    <form onsubmit="return lookup(event)" id="inform">
         <h1>Search for an airport</h1>
         <label for="airport-code">Enter airport code:</label><br>
-        <input type="text" id="airport-code" name="airport-code" placeholder="E.g. JFK" onchange="lookup"><br>
+        <input type="text" id="airport-code" name="airport-code" placeholder="E.g. JFK" onchange="lookup(event)"><br>
+        <button type="submit" class="search-airport">Search</button>
     </form>  
      <hr>
      <h2>Airport</h2>

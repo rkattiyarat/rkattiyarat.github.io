@@ -14,9 +14,11 @@ async function loadCityWeather(cityName) {
     let city_name = document.getElementById('city_name');
     let city_temp = document.getElementById('city_temp');
     let city_desc = document.getElementById('city_desc');
+    let city_icon = document.getElementById('city_icon');
     city_temp.innerHTML = Math.ceil(data.main.temp) + '°C' + ' feels like ' + Math.ceil(data.main.feels_like) + '°C';
     city_name.innerHTML = data.name;
     city_desc.innerHTML = data.weather[0].description;
+    city_icon.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
     console.log(data.weather[0].description);
 }
 
