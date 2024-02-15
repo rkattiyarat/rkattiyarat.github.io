@@ -30,7 +30,7 @@ let searchBtn = document.getElementById('search-btn');
 async function fetchCitySuggestions(query){
     let response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${api_key}`);
     let data = await response.json();
-    return data.map(city => city.name);
+    return data.map(city => city.name + ', ' + city.country);
 }
 
 async function updateAutoComplete(inputValue){
