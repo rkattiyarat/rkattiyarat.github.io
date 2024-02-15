@@ -8,7 +8,7 @@ for file in input/*.html; do
 
   # Generate the navigation bar
   navbar="<nav class='menu'>"
-  navbar="$navbar <a href="index.html" target="_blank">home</a>\n"
+  navbar="$navbar <a href="index.html">home</a>\n"
   for html_file in *.html; do
     if [ "$html_file" = "index.html" ]; then
     continue
