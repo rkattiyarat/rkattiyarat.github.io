@@ -1,5 +1,9 @@
 
-body {background-color: #b4d0e7;margin:0;padding:0; font-family: "Lucida Console", "Courier New", "monospace";font-weight: bold;}
+body {margin:0;padding:0; font-family: "Lucida Console", "Courier New", "monospace";font-weight: bold; background-image: url(/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
 .menu {background-color: #f2d349; border:4px outset black;text-align:left;}
 nav a {
     text-align:center;
@@ -20,7 +24,6 @@ nav a:hover {
     float:middle;
     z-index:1;
     margin:5em;
-    background-color:#9daaf2;
     padding:1em;
     }
 h1 {
