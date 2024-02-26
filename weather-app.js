@@ -79,19 +79,12 @@ searchInput.addEventListener('keyup', function(event) {
     }
 });
 
-// // search button event listener
-// searchBtn.addEventListener('click', function() {
-//     loadCityWeather(search.value);
-//     // clear the input field
-//     search.value = '';
-// });
+reset.addEventListener('click', function() {
+    searchInput.value = '';
+    autocomplete.innerHTML = '';
+    city_name.innerHTML = '';
+    city_temp.innerHTML = '';
+    city_desc.innerHTML = '';
+    city_icon.src = '';
+});
 
-// // enter key event listener
-// search.addEventListener('keyup', function(event) {
-//     if (event.key === 'Enter') {
-//         loadCityWeather(search.value);
-//         // clear the input field
-//         search.value = '';
-//     }
-    
-// });

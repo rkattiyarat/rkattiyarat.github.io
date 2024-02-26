@@ -262,6 +262,16 @@ button.search-button {
     cursor: pointer; /* Add cursor pointer on hover */
 }
 
+button.reset-btn {
+    background-color: #3498db; /* Blue background color */
+    color: black;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    border: solid black 2px; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    margin-top: 10px; /* Adjust margin to shift it lower */
+    cursor: pointer; /* Add cursor pointer on hover */
+}
+
 button.search-airport {
     background-color: #3498db; /* Blue background color */
     color: black;
