@@ -1,5 +1,5 @@
 
-const api_key = 'd1381a691fd9d803e38585fb280157d5';
+const api_key = process.env.WEATHER_API_KEY
 
 
 async function loadCityName(cityName) {
