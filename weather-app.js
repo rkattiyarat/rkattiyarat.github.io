@@ -1,5 +1,4 @@
-
-const api_key = process.env.WEATHER_API_KEY
+const api_key = "d1381a691fd9d803e38585fb280157d5"
 
 
 async function loadCityName(cityName) {
@@ -21,11 +20,14 @@ async function loadCityWeather(cityName) {
     city_icon.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
     console.log(data.weather[0].description);
 }
-
-// search input
-let search = document.getElementById('searchInput');
-// search button
 let searchBtn = document.getElementById('search-btn');
+let searchInput = document.getElementById('searchInput');
+let autocomplete = document.getElementById('autocomplete');
+let reset = document.getElementById('reset');
+let city_name = document.getElementById('city_name');
+let city_temp = document.getElementById('city_temp');
+let city_desc = document.getElementById('city_desc');
+let city_icon = document.getElementById('city_icon');
 
 async function fetchCitySuggestions(query){
     let response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${api_key}`);
@@ -45,7 +47,7 @@ async function updateAutoComplete(inputValue){
         option.addEventListener('click', function(){
             searchInput.value = city;
             autocomplete.innerHTML = '';
-            loadCityWeather(city);
+            loadCityWeather(city.split(',')[0]);
         });
         autocomplete.appendChild(option);
     });
