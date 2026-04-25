@@ -1,9 +1,8 @@
-const api_key = "d1381a691fd9d803e38585fb280157d5"
-
+//const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://your-app.onrender.com";
 
 async function loadCityName(cityName) {
-    //using metric with temp to get output in celsius
-    let response = await fetch('https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&units=metric' + '&appid=' + api_key);
+    let response = await fetch(`${API_BASE_URL}/weather?city=${cityName}`);
     let data = await response.json();
     return data;
 }
@@ -17,7 +16,7 @@ async function loadCityWeather(cityName) {
     city_temp.innerHTML = Math.ceil(data.main.temp) + '°C' + ' feels like ' + Math.ceil(data.main.feels_like) + '°C';
     city_name.innerHTML = data.name + ', ' + data.sys.country;
     city_desc.innerHTML = data.weather[0].description;
-    city_icon.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
+    city_icon.src = 'https://openweathermap.org/img/wn/' + icon + '.png';
     console.log(data.weather[0].description);
 }
 let searchBtn = document.getElementById('search-btn');
