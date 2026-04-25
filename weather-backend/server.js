@@ -32,3 +32,19 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+app.get("/cities", async (req, res) => {
+    try {
+        const query = req.query.q;
+
+        const response = await fetch(
+            `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${api_key}`
+        );
+
+        const data = await response.json();
+        res.json(data);
+
+    } catch (error) {
+        res.status(500).json({ error: "Server error" });
+    }
+});

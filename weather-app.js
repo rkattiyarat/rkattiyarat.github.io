@@ -1,11 +1,12 @@
 //const API_BASE_URL = "http://localhost:3000";
-const API_BASE_URL = "https://weather-backend-fj3b.onrender.com/";
+const API_BASE_URL = "https://weather-backend-fj3b.onrender.com";
 
 async function loadCityName(cityName) {
     let response = await fetch(`${API_BASE_URL}/weather?city=${cityName}`);
     let data = await response.json();
     return data;
 }
+
 // using the returned data from the loadCityName function
 async function loadCityWeather(cityName) {
     let data = await loadCityName(cityName);
@@ -16,7 +17,7 @@ async function loadCityWeather(cityName) {
     city_temp.innerHTML = Math.ceil(data.main.temp) + '°C' + ' feels like ' + Math.ceil(data.main.feels_like) + '°C';
     city_name.innerHTML = data.name + ', ' + data.sys.country;
     city_desc.innerHTML = data.weather[0].description;
-    city_icon.src = 'https://openweathermap.org/img/wn/' + icon + '.png';
+    city_icon.src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
     console.log(data.weather[0].description);
 }
 let searchBtn = document.getElementById('search-btn');
@@ -29,7 +30,7 @@ let city_desc = document.getElementById('city_desc');
 let city_icon = document.getElementById('city_icon');
 
 async function fetchCitySuggestions(query){
-    let response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${api_key}`);
+    let response = await fetch(`${API_BASE_URL}/cities?q=${query}`);
     let data = await response.json();
     return data.map(city => city.name + ', ' + city.country);
 }
