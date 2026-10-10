@@ -1,23 +1,44 @@
 #!/bin/bash
+set -euo pipefail
 
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
-# Iterate over all the HTML files in the current directory
-for file in input/*.html; do
-  # Copy the HTML file to the output directory
-  cp "$file" "$(basename $file)"
+# With no arguments, regenerate every page. Pass index.html for homepage only.
+if [ "$#" -eq 0 ]; then
+  set -- input/*.html
+fi
 
-  # Generate the navigation bar
-  navbar="<nav class='menu'>"
-  navbar="$navbar <a href="index.html">Home</a>\n"
-  for html_file in *.html; do
-    if [ "$html_file" = "index.html" ]; then
-    continue
-    fi
-    navbar="$navbar<a href='$html_file'>${html_file%.*}</a>\n"
-  done
-  navbar="$navbar</nav>"
-
-  # Insert the navigation bar into the HTML file
-  sed -i "1i$navbar" "$(basename $file)"
+navbar="<nav class='menu' aria-label='Main navigation'><a href='index.html'>Home</a>"
+for html_file in input/*.html; do
+  page="$(basename -- "$html_file")"
+  if [ "$page" != "index.html" ]; then
+    navbar+="<a href='$page'>${page%.*}</a>"
+  fi
 done
+navbar+="</nav>"
 
+for file in "$@"; do
+  page="$(basename -- "$file")"
+  source="input/$page"
+  if [ ! -f "$source" ]; then
+    echo "Source page not found: $source" >&2
+    exit 1
+  fi
+
+  if [ "$page" = "index.html" ]; then
+    # The homepage provides its own section navigation.
+    cp -- "$source" "$page"
+  else
+    # Insert once, immediately after the opening body tag, preserving doctype.
+    awk -v navbar="$navbar" '
+      !inserted && match($0, /<body[^>]*>/) {
+        print substr($0, 1, RSTART + RLENGTH - 1)
+        print navbar
+        print substr($0, RSTART + RLENGTH)
+        inserted = 1
+        next
+      }
+      { print }
+    ' "$source" > "$page"
+  fi
+done

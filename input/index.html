@@ -2,58 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>aomrose.com | Explore the world with me.</title>
-    <meta name="author" content="Rungnapa Kattiyarat"/>
-    <meta name="description" content="This is my portfolio"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
-      rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css"/>
-    <meta name="msapplication-TileColor" content="#da532c"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <link rel="icon" type="image/x-icon" href="profile.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rose Kattiyarat | Technical Support &amp; Web Development</title>
+    <meta name="author" content="Rose Kattiyarat" />
+    <meta name="description" content="Rose Kattiyarat is a Technical Support Technician in Edmonton, Alberta, building skills in web development, automation, and reliable systems. Explore her projects and get in touch." />
+    <meta name="theme-color" content="#F8FAFC" />
+    <link rel="icon" type="image/jpeg" href="profile.jpg" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-	<body>
-		<div class="outer">
-		<div class="content">
-		<img src="profile.jpg"></img>
-		<h1>Hello, My name is Rose Kattiyarat</h1>
-		<p>I’m a Technical Support Technician who enjoys solving technical problems and building better systems. <br>
-        I’m currently learning software development and working toward a developer career.</p>
-		</div>
-		</div>
-		<footer>
-      <div class="logo-container">
-			<a href="https://github.com/rkattiyarat" target="_blank">
-        <div class="section github" tooltip="Github">
-            <div class="icon">
-                <i class="fab fa-github fa-lg"></i>
-            </div>
-        </div>
-    </a>
-    <a href="https://www.linkedin.com/in/rungnapa-kattiyarat-380b22232" target="_blank">
-      <div class="section linkedin" tooltip="Linkedin">
-          <div class="icon">
-              <i class="fab fa-linkedin fa-lg"></i>
-          </div>
-      </div>
-  </a>
-  <a href="mailto:rungnapakattiyarach@gmail.com?subject=Message%20from%20website" target="_blank">
-    <div class="section google" tooltip="Google">
-        <div class="icon">
-            <i class="fab fa-google fa-lg"></i>
-        </div>
-    </div>
-</a>
-</div>
-		</footer>
-		<a href="#top" title="Back to top">Back to top ◤</a>
-	<body> 	
-</html>
+  <body class="home-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="home-header home-container">
+      <a class="home-name" href="index.html" aria-label="Rose Kattiyarat, home">Rose Kattiyarat</a>
+      <nav class="home-nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
+    <main id="main" class="home-container" tabindex="-1">
+      <section class="home-hero" aria-labelledby="intro-title">
+        <div>
+          <p class="home-eyebrow">Technical Support · Web Development</p>
+          <h1 id="intro-title">Hi, I’m Rose.<br />I solve technical problems and build useful web applications.</h1>
+          <p class="home-intro">I’m a Technical Support Technician growing my skills in software development, automation, and reliable systems.</p>
+          <div class="home-actions">
+            <a class="home-button home-button-primary" href="#projects">View my work</a>
+            <a class="home-button" href="#contact">Contact me</a>
+          </div>
+          <p class="home-location">Edmonton, Alberta</p>
+        </div>
+        <img class="home-photo" src="profile.jpg" alt="Rose Kattiyarat" width="240" height="240" fetchpriority="high" />
+      </section>
+
+      <section id="projects" class="home-section" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="home-eyebrow">Selected project</h2>
+        <article class="home-project" aria-labelledby="weather-title">
+          <div>
+            <h3 id="weather-title">Weather Application</h3>
+            <p>A web application built with JavaScript and an Express backend that retrieves weather information from OpenWeather. Search by city to explore current conditions, temperature, and feels-like temperature.</p>
+            <ul class="home-tags" aria-label="Technologies used">
+              <li>JavaScript</li>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>REST API</li>
+            </ul>
+          </div>
+          <div class="home-actions">
+            <a class="home-button home-button-primary" href="Weather_App.html" aria-label="View Weather Application project">View project</a>
+            <a class="home-button" href="https://github.com/rkattiyarat/rkattiyarat.github.io/blob/master/weather-app.js" aria-label="View Weather Application source on GitHub">View source</a>
+          </div>
+        </article>
+        <details class="home-more-projects">
+          <summary>More projects</summary>
+          <ul>
+            <li><a href="Countdown.html">Countdown timer</a></li>
+            <li><a href="Find_Airport.html">Airport finder</a></li>
+            <li><a href="Snake_Game.html">Snake game</a></li>
+            <li><a href="Temp_Converter.html">Temperature converter</a></li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="about" class="home-section" aria-labelledby="about-title">
+        <h2 id="about-title" class="home-eyebrow">What I bring</h2>
+        <div class="home-strengths">
+          <div>
+            <h3>Technical support</h3>
+            <p>Troubleshooting technical problems and communicating clear, practical solutions.</p>
+          </div>
+          <div>
+            <h3>Web development</h3>
+            <p>Building interactive web applications with JavaScript and connecting them to useful APIs.</p>
+          </div>
+          <div>
+            <h3>Continuous learning</h3>
+            <p>Developing my skills in software development, automation, and deployment.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="home-footer home-container" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="home-eyebrow">Let’s connect</h2>
+      <p>Interested in my work? Get in touch.</p>
+      <div class="home-footer-row">
+        <ul class="home-contact-links" aria-label="Contact links">
+          <li><a href="mailto:rungnapakattiyarach@gmail.com">Email</a></li>
+          <li><a href="https://github.com/rkattiyarat">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rungnapa-kattiyarat-380b22232">LinkedIn</a></li>
+        </ul>
+        <small>© 2026 Rose Kattiyarat</small>
+      </div>
+    </footer>
+  </body>
+</html>
