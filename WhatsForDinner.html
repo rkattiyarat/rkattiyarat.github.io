@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s for Dinner? | Rose Kattiyarat</title>
+    <meta name="description" content="An independently built C# and .NET 10 console app for AI-generated recipes, with structured output, input validation, and editable cooking preferences." />
+    <meta name="theme-color" content="#F8FAFC" />
+    <link rel="icon" type="image/jpeg" href="profile.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="home-page project-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="home-header home-container">
+      <a class="home-name" href="index.html" aria-label="Rose Kattiyarat, home">Rose Kattiyarat</a>
+      <nav class="home-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main" class="home-container" tabindex="-1">
+      <section class="project-intro" aria-labelledby="project-title">
+        <a class="project-back" href="index.html#projects">← Back to selected projects</a>
+        <p class="home-eyebrow">Independent project · Console application</p>
+        <h1 id="project-title">What’s for Dinner?</h1>
+        <p class="home-intro">Turn what’s in your kitchen into ideas for your next meal.</p>
+        <p class="project-copy">I built this C# application to suggest recipes from available ingredients and cooking preferences. It connects to OpenAI, validates the structured response, and presents the result in an interactive console.</p>
+        <ul class="home-tags" aria-label="Technologies used">
+          <li>C#</li><li>.NET 10</li><li>OpenAI Responses API</li><li>HTTP &amp; JSON</li>
+        </ul>
+        <div class="home-actions">
+          <a class="home-button home-button-primary" href="https://github.com/rkattiyarat/WhatsForDinner">View on GitHub</a>
+          <a class="home-button" href="#workflow">Explore the workflow</a>
+        </div>
+      </section>
+
+      <section class="home-section" aria-labelledby="features-title">
+        <h2 id="features-title" class="project-heading">Features</h2>
+        <div class="project-grid">
+          <article class="home-project">
+            <h3>Start with your ingredients</h3>
+            <p>Enter ingredients and seasonings, choose a cuisine, and set servings and an optional cooking-time limit. Input validation catches empty entries and invalid values.</p>
+          </article>
+          <article class="home-project">
+            <h3>Find a practical suggestion</h3>
+            <p>Prioritize available ingredients. If the AI reports no match, the app can make one additional request allowing up to three extra ingredients, clearly marking missing items.</p>
+          </article>
+          <article class="home-project">
+            <h3>See the recipe clearly</h3>
+            <p>Read ingredient quantities, estimated preparation and cooking times, and step-by-step instructions for your requested servings.</p>
+          </article>
+          <article class="home-project">
+            <h3>Adjust without restarting</h3>
+            <p>Request another recipe or edit individual preferences. Add, delete, or replace ingredients; duplicate additions are skipped. Apply changes or discard them without an API call.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="home-section" aria-labelledby="workflow-title">
+        <h2 id="workflow-title" class="project-heading">From ingredients to a recipe</h2>
+        <ol class="project-workflow">
+          <li><h3>Set your preferences</h3><p>Enter ingredients such as chicken, rice, broccoli, and mushrooms. Choose seasonings, cuisine, servings, and a cooking-time limit.</p></li>
+          <li><h3>Explore a suggestion</h3><p>Review the generated recipe and instructions. Choose “Try another recipe” to request an alternative using the same preferences.</p></li>
+          <li><h3>Refine your ingredients</h3><p>Choose “Edit my preferences” to update your list or cooking settings, then generate a recipe with the changes.</p></li>
+        </ol>
+      </section>
+
+      <section class="home-section" aria-labelledby="engineering-title">
+        <h2 id="engineering-title" class="project-heading">Behind the application</h2>
+        <p class="project-copy">The application separates console interaction, recipe generation, data models, and validation. It uses built-in .NET HTTP and JSON libraries, with no external NuGet packages required.</p>
+        <dl class="project-components">
+          <div><dt>Console interface</dt><dd>Collects and validates input, manages preference edits, and displays recipes and errors.</dd></div>
+          <div><dt>API integration</dt><dd>Sends cooking preferences to the OpenAI Responses API and requests output matching a JSON schema. The API key is read from an environment variable.</dd></div>
+          <div><dt>Recipe validation</dt><dd>Checks servings, times, required content, and ingredient references. It recalculates missing-ingredient status and rejects invented inventory references.</dd></div>
+          <div><dt>Error handling</dt><dd>Reports API failures such as invalid credentials and unavailable models. Errors do not trigger an automatic fallback request.</dd></div>
+        </dl>
+        <aside class="project-note" aria-labelledby="validation-title">
+          <h3 id="validation-title">Structured output still needs validation</h3>
+          <p>A JSON schema helps define the response format; application checks evaluate its contents against the user’s preferences. These checks cannot guarantee that an AI-generated recipe is accurate or safe to cook.</p>
+        </aside>
+      </section>
+
+      <section class="home-section" aria-labelledby="status-title">
+        <h2 id="status-title" class="project-heading">Development status</h2>
+        <p class="project-copy"><strong>Working console application, demonstrated locally.</strong> The current version supports recipe generation, alternative suggestions, and preference editing during a session.</p>
+        <ul class="project-limitations">
+          <li>Requires internet access and an OpenAI API key with API billing or credits.</li>
+          <li>Preferences and recipes are not saved between runs; there is no persistent pantry.</li>
+          <li>Tracks ingredient names, not available quantities. Cooking times are AI-generated estimates.</li>
+          <li>Relies on AI suggestions rather than an exhaustive recipe database.</li>
+        </ul>
+        <p><a href="https://github.com/rkattiyarat/WhatsForDinner#readme">Read the setup instructions and current limitations on GitHub →</a></p>
+      </section>
+    </main>
+
+    <footer id="contact" class="home-footer home-container" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="home-eyebrow">Let’s connect</h2>
+      <div class="home-footer-row">
+        <ul class="home-contact-links" aria-label="Contact links">
+          <li><a href="mailto:rungnapakattiyarach@gmail.com">Email</a></li>
+          <li><a href="https://github.com/rkattiyarat">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rungnapa-kattiyarat-380b22232">LinkedIn</a></li>
+        </ul>
+        <small>© 2026 Rose Kattiyarat</small>
+      </div>
+    </footer>
+  </body>
+</html>
