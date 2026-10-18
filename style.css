@@ -357,3 +357,30 @@ div.autocomplete {
     .home-page .home-project { padding: 22px; }
     .home-page .home-section { padding-block: 32px; }
 }
+
+/* Portfolio project details share the homepage's typography and colors. */
+.home-page #projects > .home-project + .home-project { margin-top: 24px; }
+.home-page .project-intro { padding-block: 40px 56px; }
+.home-page .project-back { display: inline-block; margin-bottom: 32px; text-decoration: underline; }
+.home-page .project-copy { max-width: 760px; color: #475569; }
+.home-page .project-heading { margin: 0 0 24px; text-align: left; font-size: 1.5rem; font-weight: 600; line-height: 1.3; }
+.home-page .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.home-page .project-grid h3 { font-size: 1.125rem; }
+.home-page .project-workflow { padding-left: 24px; max-width: 800px; }
+.home-page .project-workflow li { padding-left: 8px; margin-bottom: 24px; }
+.home-page .project-workflow li::marker { color: #2563eb; font-weight: 600; }
+.home-page .project-workflow p { margin: 0; color: #475569; }
+.home-page .project-components { margin-block: 28px; }
+.home-page .project-components > div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; padding-block: 18px; border-bottom: 1px solid #e2e8f0; }
+.home-page .project-components dt { font-weight: 600; }
+.home-page .project-components dd { margin: 0; max-width: 720px; color: #475569; }
+.home-page .project-note { padding: 24px; background: #eff6ff; border-left: 3px solid #2563eb; border-radius: 0 8px 8px 0; }
+.home-page .project-note p { margin: 0; color: #475569; }
+.home-page .project-limitations { max-width: 760px; padding-left: 24px; color: #475569; }
+.home-page .project-limitations li { margin-bottom: 10px; }
+.home-page.project-page main p a { text-decoration: underline; }
+@media (max-width: 700px) {
+    .home-page .project-grid { grid-template-columns: 1fr; }
+    .home-page .project-components > div { grid-template-columns: 1fr; gap: 8px; }
+    .home-page .project-intro { padding-block: 32px 40px; }
+}

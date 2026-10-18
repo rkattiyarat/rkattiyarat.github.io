@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
-# With no arguments, regenerate every page. Pass index.html for homepage only.
+# With no arguments, regenerate every page. Pass page filenames to regenerate selected pages.
 if [ "$#" -eq 0 ]; then
   set -- input/*.html
 fi
@@ -11,7 +11,7 @@ fi
 navbar="<nav class='menu' aria-label='Main navigation'><a href='index.html'>Home</a>"
 for html_file in input/*.html; do
   page="$(basename -- "$html_file")"
-  if [ "$page" != "index.html" ]; then
+  if [ "$page" != "index.html" ] && [ "$page" != "WhatsForDinner.html" ]; then
     navbar+="<a href='$page'>${page%.*}</a>"
   fi
 done
@@ -25,8 +25,8 @@ for file in "$@"; do
     exit 1
   fi
 
-  if [ "$page" = "index.html" ]; then
-    # The homepage provides its own section navigation.
+  if [ "$page" = "index.html" ] || [ "$page" = "WhatsForDinner.html" ]; then
+    # Portfolio pages provide their own navigation.
     cp -- "$source" "$page"
   else
     # Insert once, immediately after the opening body tag, preserving doctype.
